@@ -30,16 +30,22 @@ public class InventoryAbstraction : MonoBehaviour
         }
     }
 
-    public void PickupItem(int ID)
+    public bool PickupItem(int ID)
     {
-        if(ItemSlot1 != null && ItemSlot1.HasItem) {
-            ItemSlot1.CreatePickup(new Vector2(ItemSlot1.ItemObject.transform.position.x, ItemSlot1.ItemObject.transform.position.y), Mathf.Abs(ItemSlot1.ItemObject.transform.eulerAngles.z));
-            ItemSlot1 = null;
+        if(AvalabileItems[ID] != ItemSlot1) {
+            if(ItemSlot1 != null && ItemSlot1.HasItem) {
+                ItemSlot1.CreatePickup(new Vector2(ItemSlot1.ItemObject.transform.position.x, ItemSlot1.ItemObject.transform.position.y), Mathf.Abs(ItemSlot1.ItemObject.transform.eulerAngles.z));
+                ItemSlot1 = null;
+            }
+
+            ItemSlot1 = AvalabileItems[ID];
+
+            if(SubtitleController.Instance != null) SubtitleController.Instance.Show($"{AvalabileItems[ID].ItemName} Acquired.", 1.75f);
+            return true;
+        }else {
+            // if(SubtitleController.Instance != null) SubtitleController.Instance.Show($"You already have this item.", 1.75f);
+            return false;
         }
-
-        ItemSlot1 = AvalabileItems[ID];
-
-        if(SubtitleController.Instance != null) SubtitleController.Instance.Show($"{AvalabileItems[ID].ItemName} Acquired.", 1.75f);
     }
 
     public bool HasAnyItems() {

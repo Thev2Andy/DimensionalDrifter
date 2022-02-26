@@ -9,6 +9,7 @@ public class HealthSystem : MonoBehaviour
     public CinemachineVirtualCamera PlayerCamera;
     public Rigidbody2D PlayerController;
     public GameObject DeathUI;
+    public GameObject LevelUI;
 
     // Private / Hidden variables..
     [HideInInspector] public bool IsDead;

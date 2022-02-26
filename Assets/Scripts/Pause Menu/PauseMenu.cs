@@ -27,11 +27,9 @@ public class PauseMenu : MonoBehaviour
 
     public void InvokePause()
     {
-        if(!Paused)
-        {
+        if(!Paused) {
             Pause();
-        }else
-        {
+        }else {
             Resume();
         }
     }

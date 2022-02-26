@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemTrigger : MonoBehaviour
 {
     public int ItemPickupID;
+    public AudioClip PickupSound;
     public bool ForceItemPickup;
 
     // Private variables..
@@ -21,8 +22,20 @@ public class ItemTrigger : MonoBehaviour
 
         if(c.gameObject.CompareTag("Player")) {
             if(!c.gameObject.GetComponentInChildren<InventoryAbstraction>().HasAnyItems() || Input.GetKeyDown(KeyCode.E) || ForceItemPickup) {
-                c.gameObject.GetComponentInChildren<InventoryAbstraction>().PickupItem(ItemPickupID);
-                Destroy(gameObject);
+                bool PickedUp = c.gameObject.GetComponentInChildren<InventoryAbstraction>().PickupItem(ItemPickupID);
+                if(PickedUp) {
+                    Camera.main.GetComponent<AudioSource>()?.PlayOneShot(PickupSound);
+                    Destroy(gameObject);
+                }else {
+                    if(this.TryGetComponent<Rigidbody2D>(out Rigidbody2D RB) && JumpTimer <= 0f) {
+                        RB.velocity = Vector2.zero;
+                        RB.angularVelocity = 0f;
+                        RB.AddForce(new Vector2(0, 95));
+                        float Torque = Random.Range(-1f, 1f);
+                        RB.AddTorque((15f * ((Torque != 0) ? Torque : 1f)));
+                        JumpTimer = System.UInt64.MaxValue;
+                    }
+                }
             }else {
                 if(this.TryGetComponent<Rigidbody2D>(out Rigidbody2D RB) && JumpTimer <= 0f) {
                     RB.velocity = Vector2.zero;

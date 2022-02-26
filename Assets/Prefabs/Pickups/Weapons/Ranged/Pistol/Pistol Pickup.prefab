@@ -354,8 +354,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemPickupID: -1
+  PickupSound: {fileID: 8300000, guid: bb4f08e99e3ce5048bdde075b763ef6c, type: 3}
   ForceItemPickup: 0
-  AllowPickup: 0
 --- !u!1 &3911521752995489272
 GameObject:
   m_ObjectHideFlags: 0
