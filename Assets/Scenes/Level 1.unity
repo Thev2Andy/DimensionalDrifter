@@ -6032,8 +6032,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fcb691e77e002ab4da8278b3e0e51c80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DimensionTimeScale: 0.35
-  DimensionFixedTimeStep: 0.007
+  DimensionTimeScale: 0.65
+  DimensionFixedTimeStep: 0.02
 --- !u!4 &676376781
 Transform:
   m_ObjectHideFlags: 0

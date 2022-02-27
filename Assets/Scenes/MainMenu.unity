@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -692,6 +692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 272445538}
   - component: {fileID: 272445539}
+  - component: {fileID: 272445540}
   m_Layer: 5
   m_Name: Epilepsy UI
   m_TagString: Untagged
@@ -732,6 +733,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DisableDelay: 45
+--- !u!114 &272445540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272445537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80370b7df34bb27439593b06b8b4b3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EpilepsyScreen: {fileID: 272445537}
 --- !u!1 &293087891
 GameObject:
   m_ObjectHideFlags: 0
